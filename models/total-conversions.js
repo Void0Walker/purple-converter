@@ -4,9 +4,10 @@ var Schema = mongoose.Schema;
 
 var TotalConversionSchema = new Schema(
   {
-    TotalAmountUSD: { type: Number, required: true },
-    TotalConversions: { type: Number, required: true },
+    TotalAmountUSD: { type: Number, required: false },
+    TotalConversions: { type: Number, required: false },
     MostPopularCurrency: { type: String, required: false },
+    LastConversionAmountUSD: { type: Number, required: false },
   },
   { timestamps: true }
 );

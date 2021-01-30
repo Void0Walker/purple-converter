@@ -16,7 +16,7 @@ var ConversionSchema = new Schema(
       required: true,
     },
     TargetAmount: { type: Number, required: true },
-    ConversionRate: { type: String, required: true },
+    ConversionRate: { type: Number, required: true },
   },
   { timestamps: true }
 );
