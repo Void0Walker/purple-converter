@@ -1,13 +1,17 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  makeStyles,
+} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles((theme) => ({
+  purpleAppBar: {
+    background: "#522473",
+  },
   root: {
     flexGrow: 1,
   },
@@ -16,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    letterSpacing: 4,
+  },
+  purpleAuthor: {
+    letterSpacing: 4,
   },
 }));
 
@@ -24,7 +32,7 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.purpleAppBar} elevation={0}>
         <Toolbar>
           <IconButton
             edge="start"
@@ -35,9 +43,11 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            <b>PURPLE</b> CONVERTER 📈
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Typography className={classes.purpleAuthor}>
+            [ Artūras Kalandarišvili assignment ]
+          </Typography>
         </Toolbar>
       </AppBar>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "../components/theme/theme";
+import theme from "../components/theme";
 import Layout from "../components/shared/Layout";
 
 export default function MyApp(props) {
@@ -20,7 +20,9 @@ export default function MyApp(props) {
     <React.Fragment>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </React.Fragment>
   );

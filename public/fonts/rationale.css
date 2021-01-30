@@ -1,0 +1,15 @@
+/* rationale-regular - latin */
+@font-face {
+  font-family: "Rationale";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/rationale-v12-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local("Rationale"), local("Rationale-Regular"),
+    url("../fonts/rationale-v12-latin-regular.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/rationale-v12-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */ url("../fonts/rationale-v12-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/rationale-v12-latin-regular.svg#Rationale") format("svg"); /* Legacy iOS */
+}
