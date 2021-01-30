@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   purpleAuthor: {
     letterSpacing: 4,
+    padding: 24,
   },
 }));
 

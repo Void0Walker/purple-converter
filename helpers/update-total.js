@@ -1,6 +1,7 @@
 import nextConnect from "next-connect";
 import db from "../middlewares/mongo-middleware";
 import TotalConversions from "../models/total-conversions";
+import axios from "axios";
 
 const handler = nextConnect();
 
@@ -31,9 +32,9 @@ async function updateTotal(source, target, sourceAmount, targetAmount) {
 
         const totalSave = {
           TotalAmountUSD:
-            result[0].TotalAmountUSD + Number(apiConversionUSD.data.amount),
+            result[0].TotalAmountUSD + Number(apiConversionUSD.query.amount),
           TotalConversions: result[0].TotalConversions + 1,
-          LastConversionAmountUSD: Number(apiConversionUSD.data.amount),
+          LastConversionAmountUSD: Number(apiConversionUSD.query.amount),
         };
         await TotalConversions.findByIdAndUpdate(result[0]._id, totalSave);
       }
@@ -47,15 +48,15 @@ async function updateTotal(source, target, sourceAmount, targetAmount) {
 
         await totalSave.save();
       } else {
+        console.log("here");
         let apiConversionUSD = await axios.get(
           `${process.env.CURRENCY_LAYER}&from=${source}&to=USD&amount=${sourceAmount}`
         );
-        apiConversionUSD = apiConversionUSD.data;
 
         const totalSave = new TotalConversions({
-          TotalAmountUSD: Number(apiConversionUSD.data.amount),
+          TotalAmountUSD: Number(apiConversionUSD.query.amount),
           TotalConversions: 1,
-          LastConversionAmountUSD: Number(apiConversionUSD.data.amount),
+          LastConversionAmountUSD: Number(apiConversionUSD.query.amount),
         });
         await totalSave.save();
       }

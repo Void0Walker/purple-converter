@@ -1,6 +1,8 @@
 import React from "react";
-import AppBar from "../shared/AppBar";
+import AppBar from "./AppBar";
+import Footer from "./Footer";
 import Head from "next/head";
+import { Container, makeStyles } from "@material-ui/core";
 
 export default function Layout({ children }) {
   return (
@@ -15,7 +17,10 @@ export default function Layout({ children }) {
       <nav>
         <AppBar />
       </nav>
-      <main>{children}</main>
+      <main>
+        <Container>{children}</Container>
+      </main>
+      <footer>{/* <Footer /> */}</footer>
     </>
   );
 }
