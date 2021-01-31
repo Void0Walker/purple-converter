@@ -1,4 +1,4 @@
-# P U R P L E CONVERTER
+# P U R P L E | C O N V E R T E R
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -12,7 +12,7 @@ npm run dev
 yarn dev
 ```
 
-To run production version locally do:
+To run production build locally:
 
 ```bash
 npm run build
@@ -26,13 +26,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on:
 
-- [http://localhost:3000/api/conversions] (http://localhost:3000/api/conversions)
-- [http://localhost:3000/api/aggregate] (http://localhost:3000/api/aggregate)
-- [http://localhost:3000/api/currencies] (http://localhost:3000/api/currencies)
+- (http://localhost:3000/api/conversions)
+- (http://localhost:3000/api/aggregate)
+- (http://localhost:3000/api/currencies)
 
 Supported HTTP methods:
-/conversions (GET, POST)
-/aggregate (GET)
-/currencies (GET)
+
+- /conversions (GET, POST)
+- /aggregate (GET)
+- /currencies (GET)
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
