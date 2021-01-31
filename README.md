@@ -1,6 +1,10 @@
 # P U R P L E | C O N V E R T E R
 
-#### development assignment by Purple Technology
+### Development assignment by Purple Technology
+
+### Author:
+
+- Artūras Kalandarišvili
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
