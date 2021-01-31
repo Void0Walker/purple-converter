@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Paper,
-  makeStyles,
-  Typography,
-  Divider,
-  Grid,
-} from "@material-ui/core";
+import { Paper, makeStyles, Typography, Grid } from "@material-ui/core";
 import AggregateCard from "./AggregateCard";
 import ResultCard from "./ResultCard";
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +11,13 @@ const useStyles = makeStyles((theme) => ({
   },
   purpleResult: {
     padding: 24,
+  },
+  purpleAggregateGrid: {
+    borderLeft: "1px solid black",
+    [theme.breakpoints.down("sm")]: {
+      borderLeft: "hidden",
+      borderTop: "1px solid black",
+    },
   },
 }));
 
@@ -37,7 +38,7 @@ function ConversionResult({ aggregate, result }) {
             xs={12}
             sm={12}
             md={6}
-            style={{ borderLeft: "1px solid black" }}
+            className={classes.purpleAggregateGrid}
           >
             <Typography className={classes.purpleTitle}>
               <b>AGGREGATE CONVERSION DATA:</b>

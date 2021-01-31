@@ -1,8 +1,7 @@
 import React from "react";
 import AppBar from "./AppBar";
-import Footer from "./Footer";
 import Head from "next/head";
-import { Container, makeStyles } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
 export default function Layout({ children }) {
   return (
@@ -20,7 +19,6 @@ export default function Layout({ children }) {
       <main>
         <Container>{children}</Container>
       </main>
-      <footer>{/* <Footer /> */}</footer>
     </>
   );
 }

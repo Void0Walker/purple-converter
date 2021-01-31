@@ -9,10 +9,19 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   purpleTitle: {
+    fontSize: "1.5rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.8rem",
+    },
     flexGrow: 1,
     letterSpacing: 4,
   },
   purpleAuthor: {
+    fontSize: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.8rem",
+      textAlign: "right",
+    },
     letterSpacing: 4,
     padding: 24,
   },
@@ -24,7 +33,7 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static" className={classes.purpleAppBar} elevation={0}>
         <Toolbar>
-          <Typography variant="h6" className={classes.purpleTitle}>
+          <Typography className={classes.purpleTitle}>
             <b>PURPLE</b> CONVERTER 📈
           </Typography>
           <Typography className={classes.purpleAuthor}>

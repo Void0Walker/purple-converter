@@ -1,10 +1,10 @@
 import nextConnect from "next-connect";
 import db from "../../middlewares/mongo-middleware";
+import { ObjectId } from "mongodb";
+import axios from "axios";
 import Conversion from "../../models/conversion";
 import updateTotal from "../../helpers/update-total";
 import findMostPopularCurrency from "../../helpers/update-favourite-currency";
-import { ObjectId } from "mongodb";
-import axios from "axios";
 
 const errors = {
   400: "Malformed request, please adjust the body and try again",
@@ -53,7 +53,7 @@ handler.post(async (req, res) => {
 
         await conversionSave.save();
 
-        // using a helper function to asyncronously update the TotalConversions table
+        // using a helper function to asyncronously update the TotalConversions table and most popular target currency
 
         updateTotal(
           conversion.SourceCurrency.ISO,

@@ -6,9 +6,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    // background: "#00ceff",
     backgroundImage: "linear-gradient(to right, #6a11cb 0%, #2575fc 100%)",
-
     padding: 8,
     marginTop: 10,
     marginBottom: 24,
@@ -21,7 +19,6 @@ const useStyles = makeStyles({
     letterSpacing: 2,
   },
   purpleBackgroundGradient: {
-    // backgroundImage: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
     backgroundImage: "linear-gradient(to right, #6a11cb 0%, #2575fc 100%)",
   },
 });
@@ -53,12 +50,6 @@ export default function ResultCard({ result }) {
         </Typography>
         <Typography variant="h5" component="h2" style={{ color: "white" }}>
           <b>{result.ConversionRate}</b>
-        </Typography>
-        <Typography className={classes.title} color="textSecondary">
-          Converted at:
-        </Typography>
-        <Typography variant="h5" component="h2" style={{ color: "white" }}>
-          {result.createdAt}
         </Typography>
       </CardContent>
     </Card>

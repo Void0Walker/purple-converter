@@ -34,7 +34,7 @@ To run production build locally:
 
 ```bash
 npm run build
-npm start
+npm run start
 # or
 yarn build
 yarn start

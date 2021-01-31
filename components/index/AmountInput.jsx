@@ -1,7 +1,7 @@
 import React from "react";
 import { Paper, Typography, TextField } from "@material-ui/core";
 
-export default function SimpleInput({ amount, error, onAmountChange }) {
+export default function SimpleInput({ error, onAmountChange }) {
   return (
     <Paper style={{ padding: 24 }}>
       <Typography style={{ letterSpacing: 3, padding: 8 }}>

@@ -13,7 +13,6 @@ import AutorenewIcon from "@material-ui/icons/Autorenew";
 
 const useStyles = makeStyles((theme) => ({
   purpleBackground: {
-    // backgroundImage: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
     backgroundImage: "linear-gradient(to right, #6a11cb 0%, #2575fc 100%)",
   },
 }));
