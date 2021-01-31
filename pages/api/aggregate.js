@@ -8,7 +8,11 @@ handler.use(db);
 handler.get(async (req, res) => {
   try {
     const aggregate = await TotalConversions.find({});
-    res.json({ aggregate });
+    if (aggregate.length > 0) {
+      res.json({ aggregate });
+    } else {
+      res.json({ aggregate: null });
+    }
   } catch (error) {
     res.status(500).send(error);
     console.log(error);

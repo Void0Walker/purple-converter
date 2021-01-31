@@ -6,7 +6,9 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    background: "00ceff",
+    // background: "#00ceff",
+    backgroundImage: "linear-gradient(to right, #6a11cb 0%, #2575fc 100%)",
+
     padding: 8,
     marginTop: 10,
     marginBottom: 24,
@@ -15,27 +17,17 @@ const useStyles = makeStyles({
   title: {
     padding: 4,
     fontSize: 14,
-    color: "black",
+    color: "white",
     letterSpacing: 2,
   },
-  pos: {
-    marginBottom: 12,
+  purpleBackgroundGradient: {
+    // backgroundImage: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
+    backgroundImage: "linear-gradient(to right, #6a11cb 0%, #2575fc 100%)",
   },
 });
 
 export default function ResultCard({ result }) {
   const classes = useStyles();
-
-  //   conversionSave:
-  // ConversionRate: 1
-  // SourceAmount: 1
-  // SourceCurrency: "6015607a33b4e444dc9b59b9"
-  // TargetAmount: 1
-  // TargetCurrency: "6015607a33b4e444dc9b59b9"
-  // createdAt: "2021-01-31T12:20:21.787Z"
-  // updatedAt: "2021-01-31T12:20:21.787Z"
-  // __v: 0
-  // _id: "6016a0851dfa7565b80bb79e"
 
   return result ? (
     <Card className={classes.root} elevation={2}>
@@ -43,7 +35,7 @@ export default function ResultCard({ result }) {
         <Typography className={classes.title} color="textSecondary">
           Source Amount:
         </Typography>
-        <Typography variant="h5" component="h2" style={{ color: "black" }}>
+        <Typography variant="h5" component="h2" style={{ color: "white" }}>
           <b>
             {result.SourceAmount} {result.SourceCurrency.CurrencyISO}
           </b>
@@ -51,7 +43,7 @@ export default function ResultCard({ result }) {
         <Typography className={classes.title} color="textSecondary">
           Target amount:
         </Typography>
-        <Typography variant="h5" component="h2" style={{ color: "black" }}>
+        <Typography variant="h5" component="h2" style={{ color: "white" }}>
           <b>
             {result.TargetAmount} {result.TargetCurrency.CurrencyISO}
           </b>
@@ -59,13 +51,13 @@ export default function ResultCard({ result }) {
         <Typography className={classes.title} color="textSecondary">
           Conversion rate:
         </Typography>
-        <Typography variant="h5" component="h2" style={{ color: "black" }}>
+        <Typography variant="h5" component="h2" style={{ color: "white" }}>
           <b>{result.ConversionRate}</b>
         </Typography>
         <Typography className={classes.title} color="textSecondary">
           Converted at:
         </Typography>
-        <Typography variant="h5" component="h2" style={{ color: "black" }}>
+        <Typography variant="h5" component="h2" style={{ color: "white" }}>
           {result.createdAt}
         </Typography>
       </CardContent>

@@ -6,15 +6,17 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    background: "#273c75",
+    backgroundImage: "linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%)",
+    // background: "#273c75",
     padding: 8,
     marginTop: 10,
     maxWidth: 300,
+    // textAlign: "center",
   },
   title: {
     padding: 4,
     fontSize: 14,
-    color: "white",
+    color: "black",
     letterSpacing: 2,
   },
   pos: {
@@ -24,14 +26,14 @@ const useStyles = makeStyles({
 
 export default function AggregateCard({ aggregate }) {
   const classes = useStyles();
-
-  return (
+  console.log(aggregate);
+  return aggregate ? (
     <Card className={classes.root} elevation={2}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary">
-          Total amount converted 💲:
+          Total amount converted:
         </Typography>
-        <Typography variant="h5" component="h2" style={{ color: "#00ceff" }}>
+        <Typography variant="h5" component="h2" style={{ color: "#522473" }}>
           <b>
             {aggregate.TotalAmountUSD.toLocaleString("en-US", {
               style: "currency",
@@ -40,19 +42,21 @@ export default function AggregateCard({ aggregate }) {
           </b>
         </Typography>
         <Typography className={classes.title} color="textSecondary">
-          Total conversions 🔄:
+          Total conversions:
         </Typography>
-        <Typography variant="h5" component="h2" style={{ color: "#00ceff" }}>
+        <Typography variant="h5" component="h2" style={{ color: "#522473" }}>
           <b>{aggregate.TotalConversions}</b>
         </Typography>
         <Typography className={classes.title} color="textSecondary">
-          Last conversion ⌚:
+          Last conversion:
         </Typography>
-        <Typography variant="h5" component="h2" style={{ color: "#00ceff" }}>
+        <Typography variant="h5" component="h2" style={{ color: "#522473" }}>
           {/* <b>{new Date(aggregate.updatedAt).toLocaleTimeString("cs-CS")}</b> */}
           <b>{aggregate.updatedAt}</b>
         </Typography>
       </CardContent>
     </Card>
+  ) : (
+    <Typography>No data </Typography>
   );
 }

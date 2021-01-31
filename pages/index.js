@@ -38,8 +38,16 @@ export async function getServerSideProps(context) {
     aggregate.json(),
   ]);
 
-  currencies = currencies.currencies;
-  aggregate = aggregate.aggregate[0];
+  console.log(aggregate);
+
+  if (currencies) {
+    currencies = currencies.currencies;
+  }
+  if (aggregate.aggregate) {
+    aggregate = aggregate.aggregate[0];
+  } else {
+    aggregate = null;
+  }
 
   return {
     props: { page, currencies, pageTitle, aggregate, apiUrl },
