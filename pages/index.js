@@ -22,11 +22,8 @@ export default function Home({ currencies, aggregate, apiUrl }) {
 }
 
 export async function getServerSideProps(context) {
-  const pageTitle = "Home | Synetech-demo";
   const page = "/";
   const apiUrl = process.env.API_URL;
-
-  console.log(apiUrl);
 
   let [currencies, aggregate] = await Promise.all([
     fetch(`${process.env.API_URL}/currencies`),
@@ -37,8 +34,6 @@ export async function getServerSideProps(context) {
     currencies.json(),
     aggregate.json(),
   ]);
-
-  console.log(aggregate);
 
   if (currencies) {
     currencies = currencies.currencies;

@@ -2,6 +2,7 @@ import nextConnect from "next-connect";
 import db from "../../middlewares/mongo-middleware";
 import Conversion from "../../models/conversion";
 import updateTotal from "../../helpers/update-total";
+import findMostPopularCurrency from "../../helpers/update-favourite-currency";
 import { ObjectId } from "mongodb";
 import axios from "axios";
 
@@ -60,6 +61,8 @@ handler.post(async (req, res) => {
           conversion.SourceAmount,
           apiConversion.result
         );
+
+        findMostPopularCurrency(conversion.TargetCurrency.ISO);
 
         res.json({ conversionSave });
       } else {

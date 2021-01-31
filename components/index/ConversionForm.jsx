@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AddConvertionForm({ currencies, aggregate, apiUrl }) {
-  console.log(apiUrl);
   const classes = useStyles();
   const [amount, setAmount] = React.useState(null);
   const [source, setSource] = React.useState(null);
@@ -133,8 +132,6 @@ export default function AddConvertionForm({ currencies, aggregate, apiUrl }) {
       });
     }
   };
-
-  console.log(source, target, amount);
 
   return (
     <Grid container spacing={3}>

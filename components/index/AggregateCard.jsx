@@ -26,7 +26,6 @@ const useStyles = makeStyles({
 
 export default function AggregateCard({ aggregate }) {
   const classes = useStyles();
-  console.log(aggregate);
   return aggregate ? (
     <Card className={classes.root} elevation={2}>
       <CardContent>
@@ -47,6 +46,22 @@ export default function AggregateCard({ aggregate }) {
         <Typography variant="h5" component="h2" style={{ color: "#522473" }}>
           <b>{aggregate.TotalConversions}</b>
         </Typography>
+        {aggregate.MostPopularCurrency ? (
+          <>
+            <Typography className={classes.title} color="textSecondary">
+              Most popular target currency:
+            </Typography>
+            <Typography
+              variant="h5"
+              component="h2"
+              style={{ color: "#522473" }}
+            >
+              <b>{aggregate.MostPopularCurrency}</b>
+            </Typography>
+          </>
+        ) : (
+          ""
+        )}
         <Typography className={classes.title} color="textSecondary">
           Last conversion:
         </Typography>

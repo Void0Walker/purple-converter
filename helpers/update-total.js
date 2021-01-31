@@ -48,7 +48,6 @@ async function updateTotal(source, target, sourceAmount, targetAmount) {
 
         await totalSave.save();
       } else {
-        console.log("here");
         let apiConversionUSD = await axios.get(
           `${process.env.CURRENCY_LAYER}&from=${source}&to=USD&amount=${sourceAmount}`
         );
