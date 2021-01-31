@@ -27,26 +27,37 @@ const variants = {
   },
 };
 
-export default function CountrySelect({ currencies, variant }) {
+export default function CountrySelect({
+  currencies,
+  variant,
+  error,
+  onAutoCompleteSourceChange,
+  onAutoCompleteTargetChange,
+}) {
   const inputVariant = variants[variant];
   const classes = useStyles();
 
   return (
     <Paper style={{ padding: 24 }}>
       <Autocomplete
-        id="country-select-demo"
+        id={inputVariant.id}
         // style={{ width: 300 }}
         options={currencies}
         classes={{
           option: classes.option,
         }}
         autoHighlight
+        onChange={(event, newValue) =>
+          variant === "source"
+            ? onAutoCompleteSourceChange(event, newValue)
+            : onAutoCompleteTargetChange(event, newValue)
+        }
         getOptionLabel={(option) => option.CurrencyISO}
         renderOption={(option) => (
           <React.Fragment>
             <Typography
               style={{
-                color: "#546de5",
+                color: "#273c75",
               }}
             >
               <b>{option.CurrencyISO}</b>
@@ -64,7 +75,12 @@ export default function CountrySelect({ currencies, variant }) {
             <TextField
               {...params}
               label={inputVariant.label}
-              helperText="required field *"
+              error={error[variant].error}
+              helperText={
+                error[variant].helperText
+                  ? error[variant].helperText
+                  : "required field *"
+              }
               variant="filled"
               inputProps={{
                 ...params.inputProps,

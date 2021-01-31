@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ConversionResult({ aggregate }) {
-  console.log(aggregate);
   const classes = useStyles();
   return (
     <>
