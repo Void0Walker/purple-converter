@@ -8,11 +8,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home({ currencies, aggregate }) {
+export default function Home({ currencies, aggregate, apiUrl }) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <ConversionForm currencies={currencies} aggregate={aggregate} />
+      <ConversionForm
+        currencies={currencies}
+        aggregate={aggregate}
+        apiUrl={apiUrl}
+      />
     </div>
   );
 }
@@ -38,6 +42,6 @@ export async function getServerSideProps(context) {
   aggregate = aggregate.aggregate[0];
 
   return {
-    props: { page, currencies, pageTitle, aggregate },
+    props: { page, currencies, pageTitle, aggregate, apiUrl },
   };
 }

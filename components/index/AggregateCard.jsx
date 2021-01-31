@@ -15,15 +15,15 @@ const useStyles = makeStyles({
     padding: 4,
     fontSize: 14,
     color: "white",
+    letterSpacing: 2,
   },
   pos: {
     marginBottom: 12,
   },
 });
 
-export default function SimpleCard({ aggregate }) {
+export default function AggregateCard({ aggregate }) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root} elevation={2}>

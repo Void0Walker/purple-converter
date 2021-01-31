@@ -7,10 +7,6 @@ import { makeStyles, Typography, Paper } from "@material-ui/core";
 const useStyles = makeStyles({
   option: {
     fontSize: "1rem",
-    // "& > span": {
-    //   marginRight: 10,
-    //   fontSize: 18,
-    // },
   },
 });
 
