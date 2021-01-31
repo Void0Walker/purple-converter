@@ -11,7 +11,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 - Clone the repository
 - Navigate to /purple-converter dir
-- Run `bash npm run i` to install required dependencies
+- Run `npm install` to install required dependencies
 - Create .env file inside /purple-converter dir and add the required enviromental variables (MONGODB_URI, CURRENCY_LAYER, API_URL)
 
 ## Running the app
