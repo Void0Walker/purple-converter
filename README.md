@@ -2,6 +2,18 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## System Requirements:
+
+- Node.js 10.13 or later
+- MacOS, Windows (including WSL), and Linux are supported
+
+## Installation
+
+- Clone the repository
+- Navigate to /purple-converter dir
+- Run `bash npm run i` to install required dependencies
+- Create .env file inside /purple-converter dir and add the required enviromental variables (MONGODB_URI, CURRENCY_LAYER, API_URL)
+
 ## Running the app
 
 First, run the development server:
