@@ -18,7 +18,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AddConvertionForm({ currencies, aggregate, apiUrl }) {
+export default function AddConvertionForm({
+  currencies,
+  aggregate,
+  apiUrl,
+  handleRefresh,
+}) {
   const classes = useStyles();
   const [amount, setAmount] = React.useState(null);
   const [source, setSource] = React.useState(null);
@@ -52,6 +57,7 @@ export default function AddConvertionForm({ currencies, aggregate, apiUrl }) {
             SourceCurrency: source,
             TargetCurrency: target,
           });
+          handleRefresh();
         });
       });
     } else {

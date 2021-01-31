@@ -8,7 +8,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home({ currencies, aggregate, apiUrl }) {
+export default function Home({ currencies, apiUrl }) {
+  const [aggregate, setAggregate] = React.useState(null);
+  const [refresh, setRefresh] = React.useState(false);
+
+  React.useEffect(() => {
+    (async () => {
+      setTimeout(async () => {
+        let resp = await fetch(`${apiUrl}/aggregate`);
+        resp = await resp.json();
+        if (resp.aggregate) {
+          resp = resp.aggregate[0];
+        } else {
+          resp = null;
+        }
+        setAggregate(resp);
+      }, 500);
+    })();
+  }, [refresh]);
+
+  const handleRefresh = () => {
+    setRefresh(!refresh);
+  };
+
+  console.log(refresh, aggregate);
+
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -16,6 +40,7 @@ export default function Home({ currencies, aggregate, apiUrl }) {
         currencies={currencies}
         aggregate={aggregate}
         apiUrl={apiUrl}
+        handleRefresh={handleRefresh}
       />
     </div>
   );
@@ -25,26 +50,14 @@ export async function getServerSideProps(context) {
   const page = "/";
   const apiUrl = process.env.API_URL;
 
-  let [currencies, aggregate] = await Promise.all([
-    fetch(`${process.env.API_URL}/currencies`),
-    fetch(`${process.env.API_URL}/aggregate`),
-  ]);
-
-  [currencies, aggregate] = await Promise.all([
-    currencies.json(),
-    aggregate.json(),
-  ]);
+  let currencies = await fetch(`${process.env.API_URL}/currencies`);
+  currencies = await currencies.json();
 
   if (currencies) {
     currencies = currencies.currencies;
   }
-  if (aggregate.aggregate) {
-    aggregate = aggregate.aggregate[0];
-  } else {
-    aggregate = null;
-  }
 
   return {
-    props: { page, currencies, pageTitle, aggregate, apiUrl },
+    props: { page, currencies, apiUrl },
   };
 }
